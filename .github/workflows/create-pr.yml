@@ -21,7 +21,7 @@ jobs:
           echo 1.Download batfish container
           docker pull batfish/allinone
           echo
-          echo 2.Run batfish service
+          echo 2.Run batfish service updated BRANCH
           docker run -d -p 8888:8888 batfish/allinone
           echo
           echo Is Git installed?
