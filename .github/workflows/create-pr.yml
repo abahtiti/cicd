@@ -18,7 +18,14 @@ jobs:
     steps:
       - name: Generate configuration
         run: |
-            echo "dummy job"
+          echo 1.Download batfish container
+          docker pull batfish/allinone
+          echo
+          echo 2.Run batfish service
+          docker run --name batfish -d -p 8888:8888 -p 9997:9997 -p 9996:9996 batfish/allinone
+          echo
+          echo Is Git installed?
+          git --version
 
   pre-tests:
     name: "Pre-tests"
