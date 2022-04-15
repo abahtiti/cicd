@@ -44,8 +44,11 @@ jobs:
       - name: Recheck container is up
         run: |
              docker container ls -a
+             docker pull batfish/allinone
              echo
-             docker run -d -p 8888:8888 batfish/allinone
+             docker run --name batfish -d -p 8888:8888 -p 9997:9997 -p 9996:9996 batfish/allinone
+             echo recheck if is is running
+             docker container ls -a
              echo
       - name: Perform Batfish pre-tests
         run: |
