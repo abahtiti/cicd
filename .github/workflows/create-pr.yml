@@ -42,7 +42,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Recheck container is up
-        run: docker container ls -a
+        run: |
+             docker container ls -a
+             echo
+             docker run -p 8888:8888 batfish/allinone
+             echo
       - name: Perform Batfish pre-tests
         run: |
             pytest -vvv . --disable-pytest-warnings
