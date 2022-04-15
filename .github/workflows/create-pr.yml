@@ -22,7 +22,7 @@ jobs:
           docker pull batfish/allinone
           echo
           echo 2.Run batfish service
-          docker run --name batfish -d -p 8888:8888 -p 9997:9997 -p 9996:9996 batfish/allinone
+          docker run -p 8888:8888 batfish/allinone
           echo
           echo Is it running?
           docker container ls -a
