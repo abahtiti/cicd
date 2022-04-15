@@ -21,11 +21,12 @@ jobs:
           echo 1.Download batfish container
           docker pull batfish/allinone
           echo
-          echo 2.Run batfish service updated BRANCH
+          echo 2.Run batfish service
           docker run -d -p 8888:8888 batfish/allinone
           echo
-          echo Is Git installed?
-          git --version
+          echo Is it running?
+          docker container ls -a
+          echo
 
   pre-tests:
     name: "Pre-tests"
