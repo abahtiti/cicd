@@ -22,7 +22,7 @@ jobs:
           docker pull batfish/allinone
           echo
           echo 2.Run batfish service
-          docker run --name batfish -d -p 8888:8888 -p 9997:9997 -p 9996:9996 batfish/allinone
+          docker run -p 8888:8888 batfish/allinone
           echo
           echo Is Git installed?
           git --version
@@ -40,6 +40,12 @@ jobs:
       - uses: syphar/restore-pip-download-cache@v1
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Recheck container is up
+        run: |
+             docker container ls -a
+             echo
+             docker run -p 8888:8888 batfish/allinone
+             echo
       - name: Perform Batfish pre-tests
         run: |
             pytest -vvv . --disable-pytest-warnings
