@@ -14,7 +14,7 @@ def bf_init():
 
     logging.getLogger("pybatfish").setLevel(logging.WARN)
 
-    bf = Session(host="batfish.packetcoders.io")
+    bf = Session(host="abahtiti.io")
     bf.init_snapshot(BF_SNAPSHOT_PATH, overwrite=True)
 
     return bf
